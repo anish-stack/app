@@ -1,3 +1,16 @@
 {
-  "rewrites": [{ "source": "/(.*)", "destination": "/api" }]
+  "name": "my-nodejs-backend",
+  "build": {
+    "env": {
+      "YOUR_ENV_VARIABLE": "./config/config.env"
+    },
+    "command": "npm run build",
+    "use": "@vercel/node"
+  },
+  "rewrites": [
+    {
+      "source": "/api/v1/(.*)",  
+      "destination": "./server.js"
+    }
+  ]
 }
